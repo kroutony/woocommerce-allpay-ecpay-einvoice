@@ -63,3 +63,17 @@
 [1]: https://www.allpay.com.tw/Service/API_Dwnld "https://www.allpay.com.tw/Service/API_Dwnld"
 [2]: https://vendor-stage.allpay.com.tw "https://vendor-stage.allpay.com.tw"
 [3]: https://vendor-stage.ecpay.com.tw "https://vendor-stage.ecpay.com.tw"
+
+## 授權條款
+
+本軟體引用GPL v3.0授權
+
+你可以自由的拿來
+
+- 以免授權金的方式執行、重製與散布
+- 使用於商業或個人架站服務
+
+須遵守以下限制
+
+- 不可單獨地將此軟體作直接或修改後販售。
+- 須保留原外掛站台連結及原作者名字，可附加資訊。
