@@ -257,7 +257,6 @@ function allpay_e_invoice_add_style(){?>
     }
 </style>
 <?php } ?>
-
 <?php
 add_action( 'woocommerce_after_checkout_form', 'allpay_e_invoice_add_script');
 function allpay_e_invoice_add_script(){
