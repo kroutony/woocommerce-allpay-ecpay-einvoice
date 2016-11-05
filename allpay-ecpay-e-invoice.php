@@ -1,12 +1,12 @@
 <?php 
 /*
 Plugin Name: allpay-ecpay-e-invoice
-Plugin URI:
+Plugin URI: https://github.com/kroutony/woocommerce-allpay-ecpay-einvoice
 Description: allpay-ecpay-e-invoice
 Version: 1.0.0
 Date: 1 Dec 2016
 Author: kroutony
-Author URI: https://github.com/kroutony/woocommerce-allpay-ecpay-einvoice
+Author URI:
 Text Domain: allpay-e-invoice
 Domain Path: /languages
 */
