@@ -6,7 +6,7 @@ Description: allpay-ecpay-e-invoice
 Version: 1.0.0
 Date: 1 Dec 2016
 Author: kroutony
-Author URI:
+Author URI: https://github.com/kroutony/woocommerce-allpay-ecpay-einvoice
 Text Domain: allpay-e-invoice
 Domain Path: /languages
 */
