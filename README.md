@@ -54,10 +54,12 @@
 
 ## 相關連結
 
-- [電子發票API介接技術文件][1]
+- [綠界科技電子發票API介接技術文件][1]
+- [歐付寶電子發票API介接技術文件][1]
 - [歐付寶測試後台][2]
 - [綠界科技測試後台][3]
 
+[0]: https://www.ecpay.com.tw/Service/API_Dwnld "https://www.ecpay.com.tw/Service/API_Dwnld"
 [1]: https://www.allpay.com.tw/Service/API_Dwnld "https://www.allpay.com.tw/Service/API_Dwnld"
 [2]: https://vendor-stage.allpay.com.tw "https://vendor-stage.allpay.com.tw"
 [3]: https://vendor-stage.ecpay.com.tw "https://vendor-stage.ecpay.com.tw"
