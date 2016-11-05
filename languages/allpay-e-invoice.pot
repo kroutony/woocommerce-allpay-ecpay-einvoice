@@ -1,0 +1,142 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: allpay-ecpay-e-invoice\n"
+"POT-Creation-Date: 2016-11-05 14:13+0800\n"
+"PO-Revision-Date: 2016-11-05 14:12+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: allpay-ecpay-e-invoice.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: admin/setting.php:5 admin/setting.php:32
+msgid "Allpay-Ecpay EInvoice"
+msgstr ""
+
+#: admin/setting.php:5
+msgid "Allpay&Ecpay EInvoice"
+msgstr ""
+
+#: admin/setting.php:17 admin/setting.php:73 admin/setting.php:117
+msgid "Enable"
+msgstr ""
+
+#: admin/setting.php:18
+msgid "Service source"
+msgstr ""
+
+#: admin/setting.php:19
+msgid "General Settings"
+msgstr ""
+
+#: admin/setting.php:20
+msgid "Issue Mode"
+msgstr ""
+
+#: admin/setting.php:21
+msgid "List of organization to be donated"
+msgstr ""
+
+#: admin/setting.php:22
+msgid "API Key Information"
+msgstr ""
+
+#: admin/setting.php:23
+msgid "Test mode"
+msgstr ""
+
+#: admin/setting.php:89
+msgid "Manual issue"
+msgstr ""
+
+#: admin/setting.php:94
+msgid "Automatic issue"
+msgstr ""
+
+#: admin/setting.php:124
+msgid "Allpay"
+msgstr ""
+
+#: admin/setting.php:129
+msgid "Ecpay"
+msgstr ""
+
+#: checkout-fields.php:21 checkout-fields.php:119 checkout-fields.php:169
+msgid "Company Tax ID"
+msgstr ""
+
+#: checkout-fields.php:22
+msgid "8 digits number"
+msgstr ""
+
+#: checkout-fields.php:28 checkout-fields.php:123 checkout-fields.php:180
+msgid "Receipt Title"
+msgstr ""
+
+#: checkout-fields.php:37 checkout-fields.php:129 checkout-fields.php:190
+msgid "Print Invoice?"
+msgstr ""
+
+#: checkout-fields.php:43 checkout-fields.php:55
+msgid "Yes"
+msgstr ""
+
+#: checkout-fields.php:44 checkout-fields.php:56
+msgid "No"
+msgstr ""
+
+#: checkout-fields.php:50 checkout-fields.php:133 checkout-fields.php:194
+msgid "Donate Invoice?"
+msgstr ""
+
+#: checkout-fields.php:62 checkout-fields.php:138 checkout-fields.php:198
+msgid "Donate to"
+msgstr ""
+
+#: checkout-fields.php:68 checkout-fields.php:143 checkout-fields.php:208
+msgid "Carruer Type"
+msgstr ""
+
+#: checkout-fields.php:74 checkout-fields.php:148 checkout-fields.php:212
+msgid "Carruer Number"
+msgstr ""
+
+#: checkout-fields.php:264
+msgid "Invoice Information"
+msgstr ""
+
+#: checkout-fields.php:265
+msgid "Company Tax ID should be 8-digits number"
+msgstr ""
+
+#: checkout-fields.php:266
+msgid ""
+"The number of citizen digital certificate should be 2 english letters "
+"combined with 14-digits number"
+msgstr ""
+
+#: checkout-fields.php:267
+msgid ""
+"The number of barcode should be '/' combined with 7-digits Number,"
+"Letter,'+','-' or '.'"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#. Description of the plugin/theme
+msgid "allpay-ecpay-e-invoice"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "kroutony"
+msgstr ""
