@@ -6,7 +6,7 @@ $(document).ready(function(){
     var text_params={
         type: 'text',  
         pk: 1,
-        url: '/wp-admin/admin-ajax.php',
+        url: 'admin-ajax.php',
         title: '',
         emptytext:'無',
         params:{
@@ -17,7 +17,7 @@ $(document).ready(function(){
     var select_yn_params={
         type: 'select',  
         pk: 1,
-        url: '/wp-admin/admin-ajax.php',
+        url: 'admin-ajax.php',
         title: '',
         params:{
             order_id:order_id,
@@ -42,7 +42,7 @@ $(document).ready(function(){
     var donate_to_params={
         type: 'select',  
         pk: 1,
-        url: '/wp-admin/admin-ajax.php',
+        url: 'admin-ajax.php',
         title: '',
         emptytext:'無',
         params:{
@@ -54,7 +54,7 @@ $(document).ready(function(){
     var carruer_type_params={
         type: 'select',  
         pk: 1,
-        url: '/wp-admin/admin-ajax.php',
+        url: 'admin-ajax.php',
         title: '',
         params:{
             order_id:order_id,

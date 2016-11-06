@@ -7,7 +7,7 @@ $(document).ready(function(){
     e.preventDefault();
     $.ajax({
         type: "POST",
-        url: '/wp-admin/admin-ajax.php',
+        url: 'admin-ajax.php',
         timeout:10000,
         data: {
               action:'invoice_trigger_issue',
@@ -37,7 +37,7 @@ $(document).ready(function(){
       $loading_icon.attr('style','');
       $.ajax({
         type: "POST",
-        url: '/wp-admin/admin-ajax.php',
+        url: 'admin-ajax.php',
         timeout:10000,
         data: {
               action:'invoice_invalid_issue',
