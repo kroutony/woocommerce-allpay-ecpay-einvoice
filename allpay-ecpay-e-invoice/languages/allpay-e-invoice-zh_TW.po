@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: allpay-ecpay-e-invoice\n"
-"POT-Creation-Date: 2016-11-07 17:37+0800\n"
-"PO-Revision-Date: 2016-11-07 17:38+0800\n"
+"POT-Creation-Date: 2016-11-07 18:24+0800\n"
+"PO-Revision-Date: 2016-11-07 18:25+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: admin/setting.php:5 admin/setting.php:36
+#: admin/setting.php:5 admin/setting.php:38
 msgid "Allpay-Ecpay EInvoice"
 msgstr "歐付寶-綠界 電子發票"
 
@@ -28,67 +28,79 @@ msgstr "歐付寶-綠界 電子發票"
 msgid "Allpay&Ecpay EInvoice"
 msgstr "歐付寶&綠界 電子發票"
 
-#: admin/setting.php:19 admin/setting.php:77 admin/setting.php:145
+#: admin/setting.php:20 admin/setting.php:79 admin/setting.php:153
 msgid "Enable"
 msgstr "啟用"
 
-#: admin/setting.php:20
+#: admin/setting.php:21
 msgid "Service source"
 msgstr "服務來源"
 
-#: admin/setting.php:21
+#: admin/setting.php:22
 msgid "General Settings"
 msgstr "一般設定"
 
-#: admin/setting.php:22
+#: admin/setting.php:23
 msgid "Issue Mode"
 msgstr "開立模式"
 
-#: admin/setting.php:23
+#: admin/setting.php:24
 msgid "List of organization to be donated"
 msgstr "捐贈單位列表"
 
-#: admin/setting.php:24
+#: admin/setting.php:25
+msgid "Invoice type"
+msgstr "字軌類別"
+
+#: admin/setting.php:26
 msgid "Tax type"
 msgstr "課稅類別"
 
-#: admin/setting.php:25
+#: admin/setting.php:27
 msgid "Including shipping fee"
 msgstr "內含運費"
 
-#: admin/setting.php:26
+#: admin/setting.php:28
 msgid "API Key Information"
 msgstr "API相關資訊"
 
-#: admin/setting.php:27
+#: admin/setting.php:29
 msgid "Test mode"
 msgstr "測試模式"
 
-#: admin/setting.php:93
+#: admin/setting.php:95
 msgid "Manual issue"
 msgstr "手動開立"
 
-#: admin/setting.php:98
+#: admin/setting.php:100
 msgid "Automatic issue"
 msgstr "自動開立"
 
-#: admin/setting.php:121
+#: admin/setting.php:122
+msgid "General Tax Computation"
+msgstr "一般稅額計算"
+
+#: admin/setting.php:127
+msgid "Special Tax Computation"
+msgstr "特種稅額計算"
+
+#: admin/setting.php:134
 msgid "Dutiable"
 msgstr "應稅"
 
-#: admin/setting.php:131
+#: admin/setting.php:139
 msgid "Duty free"
 msgstr "免稅"
 
-#: admin/setting.php:138 checkout-fields.php:43 checkout-fields.php:55
+#: admin/setting.php:146 checkout-fields.php:43 checkout-fields.php:55
 msgid "Yes"
 msgstr "是"
 
-#: admin/setting.php:152
+#: admin/setting.php:160
 msgid "Allpay"
 msgstr "歐付寶"
 
-#: admin/setting.php:157
+#: admin/setting.php:165
 msgid "Ecpay"
 msgstr "綠界科技"
 

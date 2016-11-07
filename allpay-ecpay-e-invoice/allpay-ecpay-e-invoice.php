@@ -25,6 +25,7 @@ abstract class DEFAULT_OPTIONS{
     const ServiceSouce='allpay';
     const TaxType='dutiable';
     const ShippingFeeIncluded='';
+    const InvoiceType='general';
 }
 register_activation_hook(__FILE__, 'allpay_e_invoice_init_options');
 function allpay_e_invoice_init_options(){
@@ -35,6 +36,7 @@ function allpay_e_invoice_init_options(){
     add_option('allpay_e_invoice_enabled',DEFAULT_OPTIONS::Enabled);
     add_option('allpay_e_invoice_service_source',DEFAULT_OPTIONS::ServiceSouce);
     add_option('allpay_e_invoice_invoice_method',DEFAULT_OPTIONS::InvoiceMethod);
+    add_option('allpay_e_invoice_invoice_type',DEFAULT_OPTIONS::InvoiceType);
     add_option('allpay_e_invoice_tax_type',DEFAULT_OPTIONS::TaxType);
     add_option('allpay_e_invoice_tax_shipping_fee_included',DEFAULT_OPTIONS::ShippingFeeIncluded);
 }
@@ -271,6 +273,14 @@ class WC_Allpay_E_Invoice extends AllInvoice{
         else
             $this->Send['SalesAmount']=$this->order->get_total()-($this->order->order_shipping+$this->order->get_shipping_tax());
         $TaxType='';
+        switch(get_option('allpay_e_invoice_invoice_type')){
+            case 'general':
+                $this->Send['InvType']=E_InvType::General;
+                break;
+            case 'special':
+                $this->Send['InvType']=E_InvType::Special;
+                break;
+        }
         switch(get_option('allpay_e_invoice_tax_type')){
             case 'dutiable':
                 $TaxType=E_TaxType::Dutiable;

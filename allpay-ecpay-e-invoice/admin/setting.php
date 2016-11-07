@@ -13,6 +13,7 @@ function allpay_e_invoice_registerOption(){
     register_setting('allpay-e-invoice-settings','allpay_e_invoice_hash_iv');
     register_setting('allpay-e-invoice-settings','allpay_e_invoice_invoice_method');
     register_setting('allpay-e-invoice-settings','allpay_e_invoice_donate_to');
+    register_setting('allpay-e-invoice-settings','allpay_e_invoice_invoice_type');
     register_setting('allpay-e-invoice-settings','allpay_e_invoice_tax_type');
     register_setting('allpay-e-invoice-settings','allpay_e_invoice_tax_shipping_fee_included');
     add_settings_section('allpay_e_invoice_switch','','section_allpay_e_invoice_switch','allpay-e-invoice');
@@ -21,6 +22,7 @@ function allpay_e_invoice_registerOption(){
     add_settings_section('allpay_e_invoice_general_setting',__('General Settings','allpay-e-invoice'),'section_allpay_e_invoice_general_setting','allpay-e-invoice');
     add_settings_field('allpay_e_invoice_invoice_method',__('Issue Mode','allpay-e-invoice'),'field_allpay_e_invoice_invoice_method','allpay-e-invoice','allpay_e_invoice_general_setting');
     add_settings_field('allpay_e_invoice_donate_to',__('List of organization to be donated','allpay-e-invoice'),'field_allpay_e_invoice_donate_to','allpay-e-invoice','allpay_e_invoice_general_setting');
+    add_settings_field('allpay_e_invoice_invoice_type',__('Invoice type','allpay-e-invoice'),'field_allpay_e_invoice_invoice_type','allpay-e-invoice','allpay_e_invoice_general_setting');
     add_settings_field('allpay_e_invoice_tax_type',__('Tax type','allpay-e-invoice'),'field_allpay_e_invoice_tax_type','allpay-e-invoice','allpay_e_invoice_general_setting');
     add_settings_field('allpay_e_invoice_tax_shipping_fee_included',__('Including shipping fee','allpay-e-invoice'),'field_allpay_e_invoice_tax_shipping_fee_included','allpay-e-invoice','allpay_e_invoice_general_setting');
     add_settings_section('allpay_e_invoice_api_info',__('API Key Information','allpay-e-invoice'),'section_allpay_e_invoice_api_info' ,'allpay-e-invoice');
@@ -111,7 +113,18 @@ function field_allpay_e_invoice_donate_to(){
     echo "25885-財團法人伊甸社會福利基金會<br>";
     echo "<a href='https://www.einvoice.nat.gov.tw/APMEMBERVAN/XcaOrgPreserveCodeQuery/XcaOrgPreserveCodeQuery' target='_blank'>愛心碼查詢</a>";
     echo "</div>";
-
+}
+function field_allpay_e_invoice_invoice_type(){
+    $type=get_option('allpay_e_invoice_invoice_type');
+    echo "<input type='radio' id='allpay_e_invoice_invoice_type_general' name='allpay_e_invoice_invoice_type' value='general'";
+    if($type=="general") echo "checked=''checked";
+    echo " />";
+    echo "<label for='allpay_e_invoice_invoice_type_general'>".__('General Tax Computation','allpay-e-invoice')."</label>";
+    echo "<br>";
+    echo "<input type='radio' id='allpay_e_invoice_invoice_type_special' name='allpay_e_invoice_invoice_type' value='special'";
+    if($type=="special") echo "checked=''checked";
+    echo " />";
+    echo "<label for='allpay_e_invoice_invoice_type_special'>".__('Special Tax Computation','allpay-e-invoice')."</label>";
 }
 function field_allpay_e_invoice_tax_type(){
     $type=get_option('allpay_e_invoice_tax_type');
@@ -120,11 +133,6 @@ function field_allpay_e_invoice_tax_type(){
     echo " />";
     echo "<label for='allpay_e_invoice_tax_type_dutiable'>".__('Dutiable','allpay-e-invoice')."</label>";
     echo "<br>";
-    // echo "<input type='radio' id='allpay_e_invoice_tax_type_zero' name='allpay_e_invoice_tax_type' value='zero'";
-    // if($type=="zero") echo "checked=''checked";
-    // echo " />";
-    // echo "<label for='allpay_e_invoice_tax_type_zero'>".__('Zero tax rate','allpay-e-invoice')."</label>";
-    // echo "<br>";
     echo "<input type='radio' id='allpay_e_invoice_tax_type_free' name='allpay_e_invoice_tax_type' value='free'";
     if($type=="free") echo "checked=''checked";
     echo " />";
