@@ -1,10 +1,10 @@
-<?php 
+<?php
 /*
 Plugin Name: allpay-ecpay-e-invoice
 Plugin URI: https://github.com/kroutony/woocommerce-allpay-ecpay-einvoice
 Description: allpay-ecpay-e-invoice
-Version: 1.0.0
-Date: 1 Dec 2016
+Version: 1.1.0
+Date: 2016-11-07
 Author: kroutony
 Author URI:
 Text Domain: allpay-e-invoice
@@ -20,9 +20,11 @@ abstract class DEFAULT_OPTIONS{
     const MerchantID='2000132';
     const HashKey='ejCk326UnaZWKisg';
     const HashIV='q9jcZX8Ib9LM8wYk';
-    const InvoiceMethod='MANUAL'; 
+    const InvoiceMethod='MANUAL';
     const Enabled='';
     const ServiceSouce='allpay';
+    const TaxType='dutiable';
+    const ShippingFeeIncluded='';
 }
 register_activation_hook(__FILE__, 'allpay_e_invoice_init_options');
 function allpay_e_invoice_init_options(){
@@ -33,6 +35,8 @@ function allpay_e_invoice_init_options(){
     add_option('allpay_e_invoice_enabled',DEFAULT_OPTIONS::Enabled);
     add_option('allpay_e_invoice_service_source',DEFAULT_OPTIONS::ServiceSouce);
     add_option('allpay_e_invoice_invoice_method',DEFAULT_OPTIONS::InvoiceMethod);
+    add_option('allpay_e_invoice_tax_type',DEFAULT_OPTIONS::TaxType);
+    add_option('allpay_e_invoice_tax_shipping_fee_included',DEFAULT_OPTIONS::ShippingFeeIncluded);
 }
 add_action('plugins_loaded', 'allpay_e_invoice_plugin_init');
 function allpay_e_invoice_plugin_init() {
@@ -98,7 +102,6 @@ function allpay_e_invoice_update_post_meta_and_order_note($success,$result,$orde
         }
         $order->add_order_note($order_note);
     }
-    
 }
 function allpay_e_invoice_add_column($columns ){
     $columns['allpay_e_invoice_column']="電子發票";
@@ -258,12 +261,29 @@ class WC_Allpay_E_Invoice extends AllInvoice{
     }
     private function init_info(){
         $RelateNumber=time().'x'.$this->order->id;
-    	update_post_meta($order_id,'_allpay_e_invoice_relative_number',$RelateNumber);
+    	update_post_meta($this->order->id,'_allpay_e_invoice_relative_number',$RelateNumber);
         $this->Send['RelateNumber']=$RelateNumber;
         $this->Send['NotifyURL']=site_url();
         $this->Send['CustomerPhone']=$this->order->billing_phone;
         $this->Send['CustomerEmail']=$this->order->billing_email;
-        $this->Send['SalesAmount']=$this->order->get_total()-$this->order->get_total_shipping()+$this->order->order_shipping;
+        if(get_option('allpay_e_invoice_tax_shipping_fee_included')=='1')
+            $this->Send['SalesAmount']=$this->order->get_total();
+        else
+            $this->Send['SalesAmount']=$this->order->get_total()-($this->order->order_shipping+$this->order->get_shipping_tax());
+        $TaxType='';
+        switch(get_option('allpay_e_invoice_tax_type')){
+            case 'dutiable':
+                $TaxType=E_TaxType::Dutiable;
+                break;
+            case 'zero':
+                $TaxType=E_TaxType::Zero;
+                break;
+            case 'free':
+                $TaxType=E_TaxType::Free;
+                break;
+        }
+        $this->Send['TaxType']=$TaxType;
+        $taxIncluded=get_option('woocommerce_prices_include_tax');
         $order_items=$this->order->get_items();
         $this->Send['Items']=array();
         foreach($order_items as $item){
@@ -271,13 +291,13 @@ class WC_Allpay_E_Invoice extends AllInvoice{
             $Item=array();
             $Item['ItemName']=$item['name'];
             $Item['ItemCount']=$item['qty'];
-            $Item['ItemPrice']=$product->price;
-            $Item['ItemAmount']=(int)($product->price*$item['qty']);
+            $Item['ItemPrice']=$product->get_price();
+            $Item['ItemAmount']=(int)($product->get_price()*$item['qty']);
             $Item['ItemWord']='個';
-            $Item['ItemTaxType']='1';
+            $Item['ItemTaxType']=$TaxType;
             array_push($this->Send['Items'],$Item);
         }
-        $order_discount=(int)$this->order->get_total_discount();
+        $order_discount=(int)$this->order->get_total_discount(false);
         if($order_discount>0){
             $Item=array();
             $Item['ItemName']="總折扣";
@@ -285,17 +305,17 @@ class WC_Allpay_E_Invoice extends AllInvoice{
             $Item['ItemPrice']=$order_discount*-1;
             $Item['ItemAmount']=$Item['ItemPrice'];
             $Item['ItemWord']='式';
-            $Item['ItemTaxType']='1';
+            $Item['ItemTaxType']=$TaxType;
             array_push($this->Send['Items'],$Item);
         }
-        if($this->order->order_shipping>0){
+        if(get_option('allpay_e_invoice_tax_shipping_fee_included')=='1' && $this->order->order_shipping>0){
             $Item=array();
             $Item['ItemName']="運費";
             $Item['ItemCount']='1';
-            $Item['ItemPrice']=$this->order->order_shipping;
-            $Item['ItemAmount']=$Item['ItemPrice'];
+            $Item['ItemPrice']=$this->order->order_shipping+$this->order->get_shipping_tax();
+            $Item['ItemAmount']=$this->order->order_shipping+$this->order->get_shipping_tax();
             $Item['ItemWord']='式';
-            $Item['ItemTaxType']='1';
+            $Item['ItemTaxType']=$TaxType;
             array_push($this->Send['Items'],$Item);
         }
         $print_mark=get_post_meta( $this->order->id, '_allpay_e_invoice_billing_receipt_invoice_print_mark', true );
@@ -328,8 +348,6 @@ class WC_Allpay_E_Invoice extends AllInvoice{
             $this->Send['CarruerType']=$carruer_type;
             $this->Send['CarruerNum']=$carruer_num;
         }
-        
-        
     }
     public function Invoice_Issue(){
         $this->init_info();

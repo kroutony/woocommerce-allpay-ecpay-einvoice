@@ -1,26 +1,26 @@
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=1; plural=0;\n"
 "Project-Id-Version: allpay-ecpay-e-invoice\n"
-"POT-Creation-Date: 2016-11-05 14:13+0800\n"
-"PO-Revision-Date: 2016-11-05 14:23+0800\n"
+"POT-Creation-Date: 2016-11-07 17:37+0800\n"
+"PO-Revision-Date: 2016-11-07 17:38+0800\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.11\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.3\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: allpay-ecpay-e-invoice.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;"
-"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
-"esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"Last-Translator: \n"
-"Language: zh_TW\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: admin/setting.php:5 admin/setting.php:32
+#: admin/setting.php:5 admin/setting.php:36
 msgid "Allpay-Ecpay EInvoice"
 msgstr "歐付寶-綠界 電子發票"
 
@@ -28,47 +28,67 @@ msgstr "歐付寶-綠界 電子發票"
 msgid "Allpay&Ecpay EInvoice"
 msgstr "歐付寶&綠界 電子發票"
 
-#: admin/setting.php:17 admin/setting.php:73 admin/setting.php:117
+#: admin/setting.php:19 admin/setting.php:77 admin/setting.php:145
 msgid "Enable"
 msgstr "啟用"
 
-#: admin/setting.php:18
+#: admin/setting.php:20
 msgid "Service source"
 msgstr "服務來源"
 
-#: admin/setting.php:19
+#: admin/setting.php:21
 msgid "General Settings"
 msgstr "一般設定"
 
-#: admin/setting.php:20
+#: admin/setting.php:22
 msgid "Issue Mode"
 msgstr "開立模式"
 
-#: admin/setting.php:21
+#: admin/setting.php:23
 msgid "List of organization to be donated"
 msgstr "捐贈單位列表"
 
-#: admin/setting.php:22
+#: admin/setting.php:24
+msgid "Tax type"
+msgstr "課稅類別"
+
+#: admin/setting.php:25
+msgid "Including shipping fee"
+msgstr "內含運費"
+
+#: admin/setting.php:26
 msgid "API Key Information"
 msgstr "API相關資訊"
 
-#: admin/setting.php:23
+#: admin/setting.php:27
 msgid "Test mode"
 msgstr "測試模式"
 
-#: admin/setting.php:89
+#: admin/setting.php:93
 msgid "Manual issue"
 msgstr "手動開立"
 
-#: admin/setting.php:94
+#: admin/setting.php:98
 msgid "Automatic issue"
 msgstr "自動開立"
 
-#: admin/setting.php:124
+#: admin/setting.php:121
+msgid "Dutiable"
+msgstr "應稅"
+
+#: admin/setting.php:131
+msgid "Duty free"
+msgstr "免稅"
+
+#: admin/setting.php:138 checkout-fields.php:43 checkout-fields.php:55
+msgid "Yes"
+msgstr "是"
+
+#: admin/setting.php:152
 msgid "Allpay"
 msgstr "歐付寶"
 
-#: admin/setting.php:129
+#: admin/setting.php:157
 msgid "Ecpay"
 msgstr "綠界科技"
 
@@ -87,10 +107,6 @@ msgstr "買受人抬頭"
 #: checkout-fields.php:37 checkout-fields.php:129 checkout-fields.php:190
 msgid "Print Invoice?"
 msgstr "是否索取紙本發票?"
-
-#: checkout-fields.php:43 checkout-fields.php:55
-msgid "Yes"
-msgstr "是"
 
 #: checkout-fields.php:44 checkout-fields.php:56
 msgid "No"
@@ -112,30 +128,33 @@ msgstr "載具類型"
 msgid "Carruer Number"
 msgstr "載具編碼"
 
-#: checkout-fields.php:264
+#: checkout-fields.php:263
 msgid "Invoice Information"
 msgstr "發票資訊"
 
-#: checkout-fields.php:265
+#: checkout-fields.php:264
 msgid "Company Tax ID should be 8-digits number"
 msgstr "統一編號應為8碼數字"
 
-#: checkout-fields.php:266
+#: checkout-fields.php:265
 msgid ""
 "The number of citizen digital certificate should be 2 english letters "
 "combined with 14-digits number"
 msgstr "自然人憑證號碼應由2碼英文字母加上14碼數字所組成"
 
-#: checkout-fields.php:267
+#: checkout-fields.php:266
 msgid ""
 "The number of barcode should be '/' combined with 7-digits Number,"
 "Letter,'+','-' or '.'"
-msgstr ""
-"手機條碼應為 \\ 加上７碼由數字、英文字母與符號 + - . 所組成之條碼"
+msgstr "手機條碼應為 \\ 加上７碼由數字、英文字母與符號 + - . 所組成之條碼"
 
 #. Plugin Name of the plugin/theme
 #. Description of the plugin/theme
 msgid "allpay-ecpay-e-invoice"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/kroutony/woocommerce-allpay-ecpay-einvoice"
 msgstr ""
 
 #. Author of the plugin/theme
