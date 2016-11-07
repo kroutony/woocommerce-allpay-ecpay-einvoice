@@ -193,17 +193,18 @@ function allpay_e_invoice_add_column_action( $column )
             echo "<a class='button issue_button' value='".$the_order->id."'>開立</a>";
             echo "<img class='invoice_issue_loading' src='".plugin_dir_url( __FILE__ )."/admin/asset/icon/ajax-loader.gif"."' style='display:none;'>";
             echo "</div>";
-        }  
+        }
     }
 }
 function allpay_e_invoice_order_list_ajax( $hook ) {
-    if ('edit.php' == $hook && 'shop_order' == $_GET['post_type']) {
+    if ($hook=='edit.php'&&$_GET['post_type']=='shop_order') {
         wp_enqueue_script( 'allpay_e_invoice_order_list_ajax', plugin_dir_url( __FILE__ ) . '/admin/asset/js/ajax.js' );
     }
-    else if ('post.php' == $hook && 'edit' == $_GET['action']) {
+    else if ($hook=='post.php'&&$_GET['action']=='edit'&&get_post_type(get_the_ID())=='shop_order') {
         wp_enqueue_style( 'allpay_e_invoice_editable_css', plugin_dir_url( __FILE__ ) . '/admin/asset/lib/jquery-editable/css/jquery-editable.css"' );
-        wp_enqueue_script( 'allpay_e_invoice_editable_js', plugin_dir_url( __FILE__ ) . '/admin/asset/lib/jquery-editable/js/jquery-editable-poshytip.js','jQuery' );
-         wp_enqueue_script( 'allpay_e_invoice_order_detail_edit', plugin_dir_url( __FILE__ ) . '/admin/asset/js/order-meta-edit.js' );
+        wp_enqueue_script( 'allpay_e_invoice_jquery_poshytip', plugin_dir_url( __FILE__ ) . '/admin/asset/lib/jquery.poshytip.min.js','jQuery' );
+        wp_enqueue_script( 'allpay_e_invoice_editable_js', plugin_dir_url( __FILE__ ) . '/admin/asset/lib/jquery-editable/js/jquery-editable-poshytip.min.js','jQuery' );
+        wp_enqueue_script( 'allpay_e_invoice_order_detail_edit', plugin_dir_url( __FILE__ ) . '/admin/asset/js/order-meta-edit.js' );
     }
     else{
         return;
