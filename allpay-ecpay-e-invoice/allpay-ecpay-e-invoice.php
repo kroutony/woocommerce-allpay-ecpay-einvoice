@@ -6,7 +6,7 @@ Description: allpay-ecpay-e-invoice
 Version: 1.1.0
 Date: 2016-11-07
 Author: kroutony
-Author URI:
+Author URI: http://blog.krypds.com/
 Text Domain: allpay-e-invoice
 Domain Path: /languages
 */
