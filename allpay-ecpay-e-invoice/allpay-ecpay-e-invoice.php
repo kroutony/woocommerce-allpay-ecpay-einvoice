@@ -266,7 +266,8 @@ class WC_Allpay_E_Invoice extends AllInvoice{
     	update_post_meta($this->order->id,'_allpay_e_invoice_relative_number',$RelateNumber);
         $this->Send['RelateNumber']=$RelateNumber;
         $this->Send['NotifyURL']=site_url();
-        $this->Send['CustomerPhone']=$this->order->billing_phone;
+        $vowels = array(' ','-','(',')');
+        $this->Send['CustomerPhone']=str_replace($vowels, "",$this->order->billing_phone);
         $this->Send['CustomerEmail']=$this->order->billing_email;
         if(get_option('allpay_e_invoice_tax_shipping_fee_included')=='1')
             $this->Send['SalesAmount']=$this->order->get_total();

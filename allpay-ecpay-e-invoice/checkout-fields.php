@@ -102,7 +102,7 @@ function allpay_e_invoice_save_custom_order_meta( $order_id, $posted ){
     if( isset( $posted['allpay_e_invoice_billing_receipt_invoice_carruer_type'] ) ) {
         update_post_meta( $order_id, '_allpay_e_invoice_billing_receipt_invoice_carruer_type',  $posted['allpay_e_invoice_billing_receipt_invoice_carruer_type'].'-'.$carruer_type[$posted['allpay_e_invoice_billing_receipt_invoice_carruer_type']]  );
     }
-    
+
     if( isset( $posted['allpay_e_invoice_billing_receipt_invoice_carruer_num'] ) ) {
         update_post_meta( $order_id, '_allpay_e_invoice_billing_receipt_invoice_carruer_num',  $posted['allpay_e_invoice_billing_receipt_invoice_carruer_num'] );
     }
@@ -117,7 +117,7 @@ function allpay_e_invoice_display_custom_meta_to_customer( $order_id ){  ?>
         <tbody>
             <tr>
                 <th><?php _e( 'Company Tax ID','allpay-e-invoice' ); ?></th>
-                <td><?php get_post_meta( $order_id, '_allpay_e_invoice_billing_receipt_company_tax_id'); ?></td>
+                <td><?php echo get_post_meta( $order_id, '_allpay_e_invoice_billing_receipt_company_tax_id',true); ?></td>
             </tr>
             <tr>
                 <th><?php _e( 'Receipt Title','allpay-e-invoice' ); ?></th>
@@ -155,7 +155,7 @@ function allpay_e_invoice_display_custom_meta_to_customer( $order_id ){  ?>
 <?php } ?>
 <?php
 add_action( 'woocommerce_admin_order_data_after_billing_address', 'allpay_e_invoice_display_custom_meta_to_admin' ,20);
-function allpay_e_invoice_display_custom_meta_to_admin( $order ){  
+function allpay_e_invoice_display_custom_meta_to_admin( $order ){
             $donate_to=get_donate_list();
             ?>
             <div id="donate_to_list" style='display:none;'>
@@ -175,7 +175,7 @@ function allpay_e_invoice_display_custom_meta_to_admin( $order ){
                 <a class='order_meta' id='company_tax_id'></a>
                 <?php } ?>
             </p>
-            
+
             <p class='allpay_e_invoice_admin_order_meta'>
                 <strong><?php _e( 'Receipt Title','allpay-e-invoice');?></strong>
                 <?php if(get_post_meta( $order->id, '_allpay_e_invoice_billing_receipt_buyer', true )!='None'){?>
@@ -187,7 +187,7 @@ function allpay_e_invoice_display_custom_meta_to_admin( $order ){
                 <?php } ?>
             </p>
             <p class='allpay_e_invoice_admin_order_meta'>
-		        <strong><?php _e( 'Print Invoice?','allpay-e-invoice' );?></strong> 
+		        <strong><?php _e( 'Print Invoice?','allpay-e-invoice' );?></strong>
 		        <a class='order_meta' id='print_mark'><?php _e(get_post_meta( $order->id, '_allpay_e_invoice_billing_receipt_invoice_print_mark', true ),'allpay-e-invoice');?> </a>
 		    </p>
 		    <p class='allpay_e_invoice_admin_order_meta'>
@@ -237,7 +237,7 @@ function allpay_e_invoice_add_style(){?>
             border: 1px solid;
             border-radius: 3px;
             margin-bottom: 20px;
-            
+
     }
     .alert_red{
         border-color: red;
