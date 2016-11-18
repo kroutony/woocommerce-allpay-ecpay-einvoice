@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: allpay-ecpay-e-invoice
-Plugin URI: https://github.com/kroutony/woocommerce-allpay-ecpay-einvoice
+Plugin URI: http://blog.krypds.com/2016/11/07/woocommerce-%E6%AD%90%E4%BB%98%E5%AF%B6%E7%B6%A0%E7%95%8C%E7%A7%91%E6%8A%80-%E9%9B%BB%E5%AD%90%E7%99%BC%E7%A5%A8%E4%B8%B2%E6%8E%A5%E5%A4%96%E6%8E%9B/
 Description: allpay-ecpay-e-invoice
 Version: 1.1.2
 Date: 2016-11-18
