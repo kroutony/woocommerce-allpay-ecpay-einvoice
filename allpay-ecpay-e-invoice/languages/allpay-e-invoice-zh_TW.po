@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: allpay-ecpay-e-invoice\n"
-"POT-Creation-Date: 2016-11-07 18:24+0800\n"
-"PO-Revision-Date: 2016-11-07 18:25+0800\n"
+"POT-Creation-Date: 2016-11-18 18:51+0800\n"
+"PO-Revision-Date: 2016-11-18 18:52+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.3\n"
+"X-Generator: Poedit 1.8.11\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: allpay-ecpay-e-invoice.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: admin/setting.php:5 admin/setting.php:38
+#: admin/setting.php:5 admin/setting.php:66
 msgid "Allpay-Ecpay EInvoice"
 msgstr "歐付寶-綠界 電子發票"
 
@@ -28,7 +28,7 @@ msgstr "歐付寶-綠界 電子發票"
 msgid "Allpay&Ecpay EInvoice"
 msgstr "歐付寶&綠界 電子發票"
 
-#: admin/setting.php:20 admin/setting.php:79 admin/setting.php:153
+#: admin/setting.php:20 admin/setting.php:83 admin/setting.php:199
 msgid "Enable"
 msgstr "啟用"
 
@@ -68,97 +68,146 @@ msgstr "API相關資訊"
 msgid "Test mode"
 msgstr "測試模式"
 
-#: admin/setting.php:95
-msgid "Manual issue"
-msgstr "手動開立"
-
-#: admin/setting.php:100
-msgid "Automatic issue"
-msgstr "自動開立"
-
-#: admin/setting.php:122
-msgid "General Tax Computation"
-msgstr "一般稅額計算"
-
-#: admin/setting.php:127
-msgid "Special Tax Computation"
-msgstr "特種稅額計算"
-
-#: admin/setting.php:134
-msgid "Dutiable"
-msgstr "應稅"
-
-#: admin/setting.php:139
-msgid "Duty free"
-msgstr "免稅"
-
-#: admin/setting.php:146 checkout-fields.php:43 checkout-fields.php:55
-msgid "Yes"
-msgstr "是"
-
-#: admin/setting.php:160
+#: admin/setting.php:93
 msgid "Allpay"
 msgstr "歐付寶"
 
-#: admin/setting.php:165
+#: admin/setting.php:94
 msgid "Ecpay"
 msgstr "綠界科技"
 
-#: checkout-fields.php:21 checkout-fields.php:119 checkout-fields.php:169
+#: admin/setting.php:109
+msgid "Manual issue"
+msgstr "手動開立"
+
+#: admin/setting.php:110
+msgid "Automatic issue"
+msgstr "自動開立"
+
+#: admin/setting.php:141
+msgid "General Tax Computation"
+msgstr "一般稅額計算"
+
+#: admin/setting.php:142
+msgid "Special Tax Computation"
+msgstr "特種稅額計算"
+
+#: admin/setting.php:153
+msgid "Dutiable"
+msgstr "應稅"
+
+#: admin/setting.php:154
+msgid "Duty free"
+msgstr "免稅"
+
+#: admin/setting.php:165 checkout-fields.php:46 checkout-fields.php:58
+msgid "Yes"
+msgstr "是"
+
+#: allpay-ecpay-e-invoice.php:146 allpay-ecpay-e-invoice.php:164
+#: allpay-ecpay-e-invoice.php:189
+msgid "Invoice Number："
+msgstr "發票號碼:"
+
+#: allpay-ecpay-e-invoice.php:147 allpay-ecpay-e-invoice.php:191
+msgid "Invoice Issue Date："
+msgstr "開立時間:"
+
+#: allpay-ecpay-e-invoice.php:148
+msgid "Invoice Random Number："
+msgstr "隨機碼:"
+
+#: allpay-ecpay-e-invoice.php:154
+msgid "Invoice issue failed!"
+msgstr "發票開立失敗!"
+
+#: allpay-ecpay-e-invoice.php:165 allpay-ecpay-e-invoice.php:200
+msgid "Invoice Invalid Date："
+msgstr "作廢時間:"
+
+#: allpay-ecpay-e-invoice.php:170
+msgid "Invoice invalid failed!"
+msgstr "發票作廢失敗!"
+
+#: allpay-ecpay-e-invoice.php:179
+msgid "E Invoice"
+msgstr "電子發票"
+
+#: allpay-ecpay-e-invoice.php:193
+msgid "Invalid invoice"
+msgstr "作廢"
+
+#: allpay-ecpay-e-invoice.php:198
+msgid "Invalid Invoice："
+msgstr "已作廢的發票:"
+
+#: allpay-ecpay-e-invoice.php:202
+msgid "Re-issue invoice"
+msgstr "重新開立"
+
+#: allpay-ecpay-e-invoice.php:208
+msgid "Issue invoice"
+msgstr "開立"
+
+#: checkout-fields.php:24 checkout-fields.php:120 checkout-fields.php:170
 msgid "Company Tax ID"
 msgstr "統一編號"
 
-#: checkout-fields.php:22
+#: checkout-fields.php:25
 msgid "8 digits number"
 msgstr "8碼數字"
 
-#: checkout-fields.php:28 checkout-fields.php:123 checkout-fields.php:180
+#: checkout-fields.php:31 checkout-fields.php:124 checkout-fields.php:181
 msgid "Receipt Title"
 msgstr "買受人抬頭"
 
-#: checkout-fields.php:37 checkout-fields.php:129 checkout-fields.php:190
+#: checkout-fields.php:40 checkout-fields.php:130 checkout-fields.php:191
 msgid "Print Invoice?"
 msgstr "是否索取紙本發票?"
 
-#: checkout-fields.php:44 checkout-fields.php:56
+#: checkout-fields.php:47 checkout-fields.php:59
 msgid "No"
 msgstr "否"
 
-#: checkout-fields.php:50 checkout-fields.php:133 checkout-fields.php:194
+#: checkout-fields.php:53 checkout-fields.php:134 checkout-fields.php:195
 msgid "Donate Invoice?"
 msgstr "是否捐贈發票?"
 
-#: checkout-fields.php:62 checkout-fields.php:138 checkout-fields.php:198
+#: checkout-fields.php:65 checkout-fields.php:139 checkout-fields.php:199
 msgid "Donate to"
 msgstr "捐贈到"
 
-#: checkout-fields.php:68 checkout-fields.php:143 checkout-fields.php:208
+#: checkout-fields.php:71 checkout-fields.php:144 checkout-fields.php:209
 msgid "Carruer Type"
 msgstr "載具類型"
 
-#: checkout-fields.php:74 checkout-fields.php:148 checkout-fields.php:212
+#: checkout-fields.php:77 checkout-fields.php:149 checkout-fields.php:213
 msgid "Carruer Number"
 msgstr "載具編碼"
 
-#: checkout-fields.php:263
+#: checkout-fields.php:78
+msgid "Please input your Citizen Digital Certificate or Barcode of Phone"
+msgstr "請輸入您的自然人憑證號碼或手機條碼"
+
+#: checkout-fields.php:264
 msgid "Invoice Information"
 msgstr "發票資訊"
 
-#: checkout-fields.php:264
+#: checkout-fields.php:265
 msgid "Company Tax ID should be 8-digits number"
 msgstr "統一編號應為8碼數字"
 
-#: checkout-fields.php:265
+#: checkout-fields.php:266
 msgid ""
 "The number of citizen digital certificate should be 2 english letters "
 "combined with 14-digits number"
 msgstr "自然人憑證號碼應由2碼英文字母加上14碼數字所組成"
 
-#: checkout-fields.php:266
+#: checkout-fields.php:267
 msgid ""
 "The number of barcode should be '/' combined with 7-digits Number,"
 "Letter,'+','-' or '.'"
-msgstr "手機條碼應為 \\ 加上７碼由數字、英文字母與符號 + - . 所組成之條碼"
+msgstr "手機條碼應為 / 加上７碼由數字、英文字母與符號 + - . 所組成之條碼"
 
 #. Plugin Name of the plugin/theme
 #. Description of the plugin/theme
@@ -171,4 +220,8 @@ msgstr ""
 
 #. Author of the plugin/theme
 msgid "kroutony"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://blog.krypds.com/"
 msgstr ""

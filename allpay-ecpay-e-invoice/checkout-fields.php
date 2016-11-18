@@ -1,5 +1,5 @@
 <?php
-function get_donate_list(){
+function aeeik_get_donate_list(){
     $donate_to_option=get_option('allpay_e_invoice_donate_to');
     $donate_to_option=explode("\r\n",$donate_to_option);
     $donate_to=array();
@@ -8,15 +8,18 @@ function get_donate_list(){
     }
     return $donate_to;
 }
-$carruer_type=array(
-    '0'=>"無載具",
-    '3'=>"手機條碼",
-    '2'=>"自然人憑證"
-);
-add_filter( 'woocommerce_checkout_fields' , 'allpay_e_invoice_custom_checkout_fields',20);
-function allpay_e_invoice_custom_checkout_fields( $fields ) {
-    global $carruer_type;
-    $donate_to=get_donate_list();
+function aeeik_get_carruer_type(){
+    $carruer_type=array(
+        '0'=>'無載具',
+        '3'=>'手機載具',
+        '2'=>'自然人憑證'
+    );
+    return $carruer_type;
+}
+add_filter( 'woocommerce_checkout_fields' , 'aeeik_custom_checkout_fields',20);
+function aeeik_custom_checkout_fields( $fields ) {
+    $carruer_type=aeeik_get_carruer_type();
+    $donate_to=aeeik_get_donate_list();
     $fields['billing']['allpay_e_invoice_billing_receipt_company_tax_id'] = array(
         'label'     => __('Company Tax ID', 'allpay-e-invoice'),
         'placeholder'   => __('8 digits number','allpay-e-invoice'),
@@ -72,7 +75,7 @@ function allpay_e_invoice_custom_checkout_fields( $fields ) {
     );
     $fields['billing']['allpay_e_invoice_billing_receipt_invoice_carruer_num'] = array(
         'label'     => __('Carruer Number', 'allpay-e-invoice'),
-        'placeholder'   => "請輸入自然人憑證號碼或手機條碼",
+        'placeholder'   => __('Please input your Citizen Digital Certificate or Barcode of Phone'),
         'class'=>array('displayNone'),
 		'required'  => true,
     	'clear'     => true,
@@ -80,10 +83,10 @@ function allpay_e_invoice_custom_checkout_fields( $fields ) {
     );
     return $fields;
 }
-add_action( 'woocommerce_checkout_update_order_meta', 'allpay_e_invoice_save_custom_order_meta', 20, 2 );
-function allpay_e_invoice_save_custom_order_meta( $order_id, $posted ){
-    global $carruer_type;
-    $donate_to=get_donate_list();
+add_action( 'woocommerce_checkout_update_order_meta', 'aeeik_checkout_update_order_meta', 20, 2 );
+function aeeik_checkout_update_order_meta( $order_id, $posted ){
+    $carruer_type=aeeik_get_carruer_type();
+    $donate_to=aeeik_get_donate_list();
     if( isset( $posted['allpay_e_invoice_billing_receipt_company_tax_id'] ) ) {
         update_post_meta( $order_id, '_allpay_e_invoice_billing_receipt_company_tax_id',  $posted['allpay_e_invoice_billing_receipt_company_tax_id']  );
     }
@@ -102,17 +105,15 @@ function allpay_e_invoice_save_custom_order_meta( $order_id, $posted ){
     if( isset( $posted['allpay_e_invoice_billing_receipt_invoice_carruer_type'] ) ) {
         update_post_meta( $order_id, '_allpay_e_invoice_billing_receipt_invoice_carruer_type',  $posted['allpay_e_invoice_billing_receipt_invoice_carruer_type'].'-'.$carruer_type[$posted['allpay_e_invoice_billing_receipt_invoice_carruer_type']]  );
     }
-
     if( isset( $posted['allpay_e_invoice_billing_receipt_invoice_carruer_num'] ) ) {
         update_post_meta( $order_id, '_allpay_e_invoice_billing_receipt_invoice_carruer_num',  $posted['allpay_e_invoice_billing_receipt_invoice_carruer_num'] );
     }
-
 }
 ?>
 <?php
-add_action( 'woocommerce_thankyou', 'allpay_e_invoice_display_custom_meta_to_customer', 20 );
-add_action( 'woocommerce_view_order', 'allpay_e_invoice_display_custom_meta_to_customer', 20 );
-function allpay_e_invoice_display_custom_meta_to_customer( $order_id ){  ?>
+add_action( 'woocommerce_thankyou', 'aeeik_display_custom_meta_to_customer', 20 );
+add_action( 'woocommerce_view_order', 'aeeik_display_custom_meta_to_customer', 20 );
+function aeeik_display_custom_meta_to_customer( $order_id ){  ?>
     <table class="shop_table shop_table_responsive additional_info">
         <tbody>
             <tr>
@@ -154,9 +155,9 @@ function allpay_e_invoice_display_custom_meta_to_customer( $order_id ){  ?>
     </table>
 <?php } ?>
 <?php
-add_action( 'woocommerce_admin_order_data_after_billing_address', 'allpay_e_invoice_display_custom_meta_to_admin' ,20);
-function allpay_e_invoice_display_custom_meta_to_admin( $order ){
-            $donate_to=get_donate_list();
+add_action( 'woocommerce_admin_order_data_after_billing_address', 'aeeik_display_custom_meta_to_admin' ,20);
+function aeeik_display_custom_meta_to_admin( $order ){
+            $donate_to=aeeik_get_donate_list();
             ?>
             <div id="donate_to_list" style='display:none;'>
                 <?php
@@ -220,8 +221,8 @@ function allpay_e_invoice_display_custom_meta_to_admin( $order ){
             </p>
 <?php } ?>
 <?php
-add_action('woocommerce_before_checkout_form','allpay_e_invoice_add_style');
-function allpay_e_invoice_add_style(){?>
+add_action('woocommerce_before_checkout_form','aeeik_checkout_field_style');
+function aeeik_checkout_field_style(){?>
 <style>
     .displayBlock{
         display:block !important;
@@ -258,8 +259,8 @@ function allpay_e_invoice_add_style(){?>
 </style>
 <?php } ?>
 <?php
-add_action( 'woocommerce_after_checkout_form', 'allpay_e_invoice_add_script');
-function allpay_e_invoice_add_script(){
+add_action( 'woocommerce_after_checkout_form', 'aeeik_extra_fields_and_script');
+function aeeik_extra_fields_and_script(){
     echo "<h3 class='allpay-e-invoice-fields-group' id='invoice_title' style='display:none;'>".__('Invoice Information','allpay-e-invoice')."</h3>";
     echo "<div id='tax_id_alert' class='field_alert alert_red' style='display:none;'>".__("Company Tax ID should be 8-digits number","allpay-e-invoice")."</div>";
     echo "<div id='carruer_cdc_number_alert' class='field_alert alert_red' style='display:none;'>".__("The number of citizen digital certificate should be 2 english letters combined with 14-digits number","allpay-e-invoice")."</div>";
