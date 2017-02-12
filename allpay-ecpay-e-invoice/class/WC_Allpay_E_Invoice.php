@@ -116,7 +116,8 @@ class WC_Allpay_E_Invoice extends AllInvoice{
         $carruer_type=explode('-',get_post_meta( $this->order->id, '_allpay_e_invoice_billing_receipt_invoice_carruer_type', true ))[0];
         $carruer_num=get_post_meta( $this->order->id, '_allpay_e_invoice_billing_receipt_invoice_carruer_num', true );
         $tax_id=get_post_meta( $this->order->id, '_allpay_e_invoice_billing_receipt_company_tax_id', true );
-        $this->Send['CustomerIdentifier']=$tax_id;
+        if(preg_match('/^[0-9]{8}$/',$tax_id))
+            $this->Send['CustomerIdentifier']=$tax_id;
         if($print_mark=='Yes'){
             $this->Send['CustomerAddr']=$this->order->shipping_address_1;
             if(in_array($buyer_name,array("None","")))
@@ -137,7 +138,9 @@ class WC_Allpay_E_Invoice extends AllInvoice{
         }
         if(in_array($carruer_type,array('2','3'))){
             $this->Send['CarruerType']=$carruer_type;
-            $this->Send['CarruerNum']=$carruer_num;
+            if(preg_match('/^\/{1}[0-9a-zA-Z+-.]{7}$/',$carruer_num)||
+            preg_match('/^[a-zA-Z]{2}[0-9]{14}$/',$carruer_num))
+                $this->Send['CarruerNum']=$carruer_num;
         }
     }
     public function Invoice_Issue(){
