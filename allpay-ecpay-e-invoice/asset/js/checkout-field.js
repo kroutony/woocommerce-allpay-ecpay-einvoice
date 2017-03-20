@@ -1,5 +1,25 @@
 "use strict";
 jQuery(function($){
+    $.fn.extend({
+        dn:function(){
+            this.addClass('displayNone');
+        },
+        dd:function(){
+            this.removeClass('displayNone');
+        },
+        db:function(){
+            this.addClass('displayBlock');
+        },
+        dat:function(){
+            this.attr('disabled',true);
+        },
+        daf:function(){
+            this.attr('disabled',false);
+        },
+        ss:function(){
+            this.attr('selected',true);
+        }
+    });
     var prefix_allpay_e_invoice_billing_receipt='allpay_e_invoice_billing_receipt';
     var $invoice_title=$('#invoice_title');
     var $tax_id_alert=$("#tax_id_alert");
@@ -46,26 +66,6 @@ jQuery(function($){
        }); 
     });
     $(document).ready(function(){
-        $.fn.extend({
-            dn:function(){
-                this.addClass('displayNone');
-            },
-            dd:function(){
-                this.removeClass('displayNone');
-            },
-            db:function(){
-                this.addClass('displayBlock');
-            },
-            dat:function(){
-                this.attr('disabled',true);
-            },
-            daf:function(){
-                this.attr('disabled',false);
-            },
-            ss:function(){
-                this.attr('selected',true);
-            }
-        });
         //統一編號欄位輸入事件
         $allpay_e_invoice_billing_receipt_company_tax_id.on('input',function(){   
             var val=$(this).val();
