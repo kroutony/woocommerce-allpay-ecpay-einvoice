@@ -78,7 +78,10 @@ class WC_Allpay_E_Invoice extends AllInvoice{
         $order_items=$this->order->get_items();
         $this->Send['Items']=array();
         foreach($order_items as $item){
-            $product=new WC_Product($item['product_id']);
+            if($item['variation_id']!=0)
+                $product=new WC_Product_Variation($item['variation_id']);
+            else
+                $product=new WC_Product($item['product_id']);
             $Item=array();
             $Item['ItemName']=$item['name'];
             $Item['ItemCount']=$item['qty'];
