@@ -221,7 +221,9 @@ class AEEIK_FieldsAndMetas{
         </p>
 	    <p class='allpay_e_invoice_admin_order_meta'>
 	        <strong><?php _e( 'Carruer Type','allpay-e-invoice' );?>:</strong>
-	        <a class='order_meta' id="carruer_type"><?php echo explode('-',get_post_meta( $order->id, '_allpay_e_invoice_billing_receipt_invoice_carruer_type', true ))[1];?></a>
+	        <a class='order_meta' id="carruer_type">
+                <?php echo explode('-',get_post_meta( $order->id, '_allpay_e_invoice_billing_receipt_invoice_carruer_type', true ))[1];?>
+            </a>
         </p>
         <p class='allpay_e_invoice_admin_order_meta'>
             <strong><?php _e( 'Carruer Number','allpay-e-invoice' );?>:</strong>
