@@ -1,8 +1,8 @@
 # Woocommerce 歐付寶&綠界科技 電子發票串接外掛 v1.3.3
 
 ### 系統需求
-- Wordpress (支援至4.7.2)
-- Woocommerce (支援至2.6.7)
+- Wordpress (支援至4.7.4)
+- Woocommerce (測試支援至3.0.4)
 
 ### 安裝步驟
 
