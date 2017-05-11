@@ -3,8 +3,8 @@
 Plugin Name: allpay-ecpay-e-invoice
 Plugin URI: http://blog.krypds.com/2016/11/07/wordpress-woocommerce-%E6%AD%90%E4%BB%98%E5%AF%B6%E7%B6%A0%E7%95%8C%E7%A7%91%E6%8A%80-%E9%9B%BB%E5%AD%90%E7%99%BC%E7%A5%A8%E4%B8%B2%E6%8E%A5%E5%A4%96%E6%8E%9B/
 Description: 歐付寶&綠界 電子發票模組
-Version: 1.3.3
-Date: 2017-04-27
+Version: 1.4.0
+Date: 2017-05-10
 Author: kroutony
 Author URI: http://blog.krypds.com/
 Text Domain: allpay-e-invoice
@@ -78,6 +78,10 @@ class AEEIK_Plugin{
             add_action('wp_ajax_aeeik_invalid_invoice',array($this,'ajax_invalid_invoice'));
             //註冊ajax後端處理事件，於訂單資料頁面修改發票資料
             add_action('wp_ajax_aeeik_edit_invoice_meta',array($this,'ajax_edit_invoice_meta'));
+            //新增批次動作
+            add_action('admin_footer-edit.php', array($this,'add_bulk_actions'));
+            //處理批次動作
+            add_action('load-edit.php', array($this,'bulk_action'));
         }
     }
     //載入外掛用
@@ -330,13 +334,48 @@ class AEEIK_Plugin{
         }
     }
     //開立發票
-    function issue_invoice($order_id){
+    public function issue_invoice($order_id){
         $allpay_invoice=new WC_Allpay_E_Invoice($order_id);
         $result=$allpay_invoice->Invoice_Issue();
         if(isset($result['RtnCode'])&& $result['RtnCode']==1){
             $this->update_post_meta_and_order_note('issue',true,$result,$order_id);
         }else{
             $this->update_post_meta_and_order_note('issue',false,$result,$order_id);
+        }
+    }
+    //新增批次動作
+    public function add_bulk_actions(){
+        global $post_type;
+        if ( $post_type == 'shop_order' ){
+            include('admin/script-add-bulk-actions.php');
+        }
+    }
+    //處理批次動作
+    public function bulk_action(){
+        global $typenow;
+        if($typenow=='shop_order'){
+            $wp_list_table = _get_list_table('WP_Posts_List_Table');
+            $action = $wp_list_table->current_action();
+            $allowed_actions = array("aeeik_bulk_issue");
+            if(!in_array($action,$allowed_actions))
+                return;
+            if($_REQUEST['post']){
+                $order_ids=array_map('intval',$_REQUEST['post']);
+            }
+            if($action=='aeeik_bulk_issue'){
+                foreach($order_ids as $order_id){
+                    $order=new WC_Order($order_id);
+                    $order_status=$order->get_status();
+                    $invoice_status=get_post_meta($order_id,'_allpay_e_invoice_invoice_status',true);
+                    if(!in_array($order_status,array('processing','completed')) || $invoice_status=='1'){
+                        continue;
+                    }
+                    $this->issue_invoice($order_id);
+                }
+                $sendback = admin_url( "edit.php?post_type=".$typenow."&success=1" );
+                wp_redirect($sendback);
+                exit();
+            }
         }
     }
 }

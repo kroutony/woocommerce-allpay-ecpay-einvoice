@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: allpay-ecpay-e-invoice\n"
-"POT-Creation-Date: 2016-11-18 18:51+0800\n"
-"PO-Revision-Date: 2016-11-18 18:52+0800\n"
+"POT-Creation-Date: 2017-05-11 09:46+0800\n"
+"PO-Revision-Date: 2017-05-11 09:47+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 1.8.3\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: allpay-ecpay-e-invoice.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -19,6 +19,10 @@ msgstr ""
 "_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: admin/script-add-bulk-actions.php:4
+msgid "Bulk issue invoices"
+msgstr "開立發票"
 
 #: admin/setting.php:5 admin/setting.php:66
 msgid "Allpay-Ecpay EInvoice"
@@ -100,122 +104,138 @@ msgstr "應稅"
 msgid "Duty free"
 msgstr "免稅"
 
-#: admin/setting.php:165 checkout-fields.php:46 checkout-fields.php:58
+#: admin/setting.php:165 class/AEEIK_FieldsAndMetas.php:64
+#: class/AEEIK_FieldsAndMetas.php:76
 msgid "Yes"
 msgstr "是"
 
-#: allpay-ecpay-e-invoice.php:146 allpay-ecpay-e-invoice.php:164
-#: allpay-ecpay-e-invoice.php:189
+#: allpay-ecpay-e-invoice.php:175 allpay-ecpay-e-invoice.php:249
+#: allpay-ecpay-e-invoice.php:267 allpay-ecpay-e-invoice.php:295
 msgid "Invoice Number："
 msgstr "發票號碼:"
 
-#: allpay-ecpay-e-invoice.php:147 allpay-ecpay-e-invoice.php:191
+#: allpay-ecpay-e-invoice.php:177 allpay-ecpay-e-invoice.php:250
+#: allpay-ecpay-e-invoice.php:297
 msgid "Invoice Issue Date："
 msgstr "開立時間:"
 
-#: allpay-ecpay-e-invoice.php:148
-msgid "Invoice Random Number："
-msgstr "隨機碼:"
-
-#: allpay-ecpay-e-invoice.php:154
-msgid "Invoice issue failed!"
-msgstr "發票開立失敗!"
-
-#: allpay-ecpay-e-invoice.php:165 allpay-ecpay-e-invoice.php:200
-msgid "Invoice Invalid Date："
-msgstr "作廢時間:"
-
-#: allpay-ecpay-e-invoice.php:170
-msgid "Invoice invalid failed!"
-msgstr "發票作廢失敗!"
-
-#: allpay-ecpay-e-invoice.php:179
-msgid "E Invoice"
-msgstr "電子發票"
-
-#: allpay-ecpay-e-invoice.php:193
+#: allpay-ecpay-e-invoice.php:179 allpay-ecpay-e-invoice.php:299
 msgid "Invalid invoice"
 msgstr "作廢"
 
-#: allpay-ecpay-e-invoice.php:198
+#: allpay-ecpay-e-invoice.php:214 allpay-ecpay-e-invoice.php:305
 msgid "Invalid Invoice："
 msgstr "已作廢的發票:"
 
-#: allpay-ecpay-e-invoice.php:202
+#: allpay-ecpay-e-invoice.php:216 allpay-ecpay-e-invoice.php:268
+#: allpay-ecpay-e-invoice.php:307
+msgid "Invoice Invalid Date："
+msgstr "作廢時間:"
+
+#: allpay-ecpay-e-invoice.php:218 allpay-ecpay-e-invoice.php:309
 msgid "Re-issue invoice"
 msgstr "重新開立"
 
-#: allpay-ecpay-e-invoice.php:208
+#: allpay-ecpay-e-invoice.php:251
+msgid "Invoice Random Number："
+msgstr "隨機碼:"
+
+#: allpay-ecpay-e-invoice.php:257
+msgid "Invoice issue failed!"
+msgstr "發票開立失敗!"
+
+#: allpay-ecpay-e-invoice.php:273
+msgid "Invoice invalid failed!"
+msgstr "發票作廢失敗!"
+
+#: allpay-ecpay-e-invoice.php:283
+msgid "E Invoice"
+msgstr "電子發票"
+
+#: allpay-ecpay-e-invoice.php:315
 msgid "Issue invoice"
 msgstr "開立"
 
-#: checkout-fields.php:24 checkout-fields.php:120 checkout-fields.php:170
+#: class/AEEIK_FieldsAndMetas.php:42 class/AEEIK_FieldsAndMetas.php:135
+#: class/AEEIK_FieldsAndMetas.php:185
 msgid "Company Tax ID"
 msgstr "統一編號"
 
-#: checkout-fields.php:25
+#: class/AEEIK_FieldsAndMetas.php:43
 msgid "8 digits number"
 msgstr "8碼數字"
 
-#: checkout-fields.php:31 checkout-fields.php:124 checkout-fields.php:181
+#: class/AEEIK_FieldsAndMetas.php:49 class/AEEIK_FieldsAndMetas.php:139
+#: class/AEEIK_FieldsAndMetas.php:195
 msgid "Receipt Title"
 msgstr "買受人抬頭"
 
-#: checkout-fields.php:40 checkout-fields.php:130 checkout-fields.php:191
+#: class/AEEIK_FieldsAndMetas.php:58 class/AEEIK_FieldsAndMetas.php:145
+#: class/AEEIK_FieldsAndMetas.php:205
 msgid "Print Invoice?"
 msgstr "是否索取紙本發票?"
 
-#: checkout-fields.php:47 checkout-fields.php:59
+#: class/AEEIK_FieldsAndMetas.php:65 class/AEEIK_FieldsAndMetas.php:77
 msgid "No"
 msgstr "否"
 
-#: checkout-fields.php:53 checkout-fields.php:134 checkout-fields.php:195
+#: class/AEEIK_FieldsAndMetas.php:71 class/AEEIK_FieldsAndMetas.php:149
+#: class/AEEIK_FieldsAndMetas.php:209
 msgid "Donate Invoice?"
 msgstr "是否捐贈發票?"
 
-#: checkout-fields.php:65 checkout-fields.php:139 checkout-fields.php:199
+#: class/AEEIK_FieldsAndMetas.php:83 class/AEEIK_FieldsAndMetas.php:154
+#: class/AEEIK_FieldsAndMetas.php:213
 msgid "Donate to"
 msgstr "捐贈到"
 
-#: checkout-fields.php:71 checkout-fields.php:144 checkout-fields.php:209
+#: class/AEEIK_FieldsAndMetas.php:89 class/AEEIK_FieldsAndMetas.php:159
+#: class/AEEIK_FieldsAndMetas.php:223
 msgid "Carruer Type"
 msgstr "載具類型"
 
-#: checkout-fields.php:77 checkout-fields.php:149 checkout-fields.php:213
+#: class/AEEIK_FieldsAndMetas.php:95 class/AEEIK_FieldsAndMetas.php:164
+#: class/AEEIK_FieldsAndMetas.php:229
 msgid "Carruer Number"
 msgstr "載具編碼"
 
-#: checkout-fields.php:78
+#: class/AEEIK_FieldsAndMetas.php:96
 msgid "Please input your Citizen Digital Certificate or Barcode of Phone"
 msgstr "請輸入您的自然人憑證號碼或手機條碼"
 
-#: checkout-fields.php:264
+#: class/AEEIK_FieldsAndMetas.php:277
 msgid "Invoice Information"
 msgstr "發票資訊"
 
-#: checkout-fields.php:265
+#: class/AEEIK_FieldsAndMetas.php:278
 msgid "Company Tax ID should be 8-digits number"
 msgstr "統一編號應為8碼數字"
 
-#: checkout-fields.php:266
+#: class/AEEIK_FieldsAndMetas.php:279
 msgid ""
 "The number of citizen digital certificate should be 2 english letters "
 "combined with 14-digits number"
 msgstr "自然人憑證號碼應由2碼英文字母加上14碼數字所組成"
 
-#: checkout-fields.php:267
+#: class/AEEIK_FieldsAndMetas.php:280
 msgid ""
 "The number of barcode should be '/' combined with 7-digits Number,"
 "Letter,'+','-' or '.'"
 msgstr "手機條碼應為 / 加上７碼由數字、英文字母與符號 + - . 所組成之條碼"
 
 #. Plugin Name of the plugin/theme
-#. Description of the plugin/theme
 msgid "allpay-ecpay-e-invoice"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://github.com/kroutony/woocommerce-allpay-ecpay-einvoice"
+msgid ""
+"http://blog.krypds.com/2016/11/07/wordpress-woocommerce-%E6%AD%90%E4%BB"
+"%98%E5%AF%B6%E7%B6%A0%E7%95%8C%E7%A7%91%E6%8A%80-%E9%9B%BB%E5%AD"
+"%90%E7%99%BC%E7%A5%A8%E4%B8%B2%E6%8E%A5%E5%A4%96%E6%8E%9B/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "歐付寶&綠界 電子發票模組"
 msgstr ""
 
 #. Author of the plugin/theme
