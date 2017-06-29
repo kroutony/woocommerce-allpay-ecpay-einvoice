@@ -87,8 +87,8 @@ class WC_Allpay_E_Invoice extends AllInvoice{
             $Item['ItemCount']=$item['qty'];
             if($item['line_total']==0)
                 continue;
-            $Item['ItemAmount']=$item['line_total'];
-            $Item['ItemPrice']=$item['line_total']/$item['qty'];
+            $Item['ItemAmount']=$item['line_subtotal'];
+            $Item['ItemPrice']=$item['line_subtotal']/$item['qty'];
             $Item['ItemWord']='個';
             $Item['ItemTaxType']=$TaxType;
             array_push($this->Send['Items'],$Item);
